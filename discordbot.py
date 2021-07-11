@@ -216,6 +216,7 @@ async def loop():
                 embed.add_field(name="日曜日",
                         value=":regional_indicator_h: 20:00~ \n :regional_indicator_g: 21:00~ \n :regional_indicator_i: 22:00~")
 
+                await channel.send('@everyone')
                 embedFromBot = await channel.send(embed=embed)
                 await embedFromBot.add_reaction("\N{Regional Indicator Symbol Letter A}")
                 await embedFromBot.add_reaction("\N{Regional Indicator Symbol Letter B}")
