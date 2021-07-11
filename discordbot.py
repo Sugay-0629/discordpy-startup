@@ -12,11 +12,11 @@ client = discord.Client()
 
 plan_confirmation_message = None
 plan_confirmation_user_data = {}
-plan_confirmation_channel_id = 483064145516953615
+plan_confirmation_channel_id = 860492700579266560
 
 six_mans_message = None
 six_mans_user_data = []
-six_mans_channel_id = 862981037532643328
+six_mans_channel_id = 863652928501317643
 
 isFirstLoop = True
 
@@ -32,12 +32,12 @@ async def on_raw_reaction_add(payload):
     global plan_confirmation_user_data
     global six_mans_user_data
 
-    if payload.channel_id == 483064145516953615:
+    if payload.channel_id == 860492700579266560:
         if payload.emoji.name not in plan_confirmation_user_data:
             plan_confirmation_user_data[payload.emoji.name] = []
         plan_confirmation_user_data[payload.emoji.name].append(payload.member.name)
 
-    if payload.channel_id == 862981037532643328:
+    if payload.channel_id == 863652928501317643:
         channel = client.get_channel(six_mans_channel_id)
 
         if payload.member.name not in six_mans_user_data:
