@@ -7,8 +7,6 @@ import os
 
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
-TOKEN = 'ODYxMjgxNDMzOTE3ODQ5NjQx.YOHg1w.EfixmykLycQTejas4TAIq-E8I-I'
-
 client = discord.Client()
 
 userdata_id_dictionary = {}
