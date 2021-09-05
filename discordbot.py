@@ -64,6 +64,12 @@ async def on_message(message):
 
 
     if message.content == '/create':
+        global plan_confirmation_message
+        global plan_confirmation_user_data
+
+        plan_confirmation_message = None
+        plan_confirmation_user_data = {}
+
         #print(message.channel.id)
         embed = discord.Embed(title="予定確認", description="今週プライベートマッチを行う曜日のアンケートを取ります", color=discord.Colour.red())
         embed.add_field(name="金曜日",
@@ -89,7 +95,6 @@ async def on_message(message):
         await embedFromBot.add_reaction("\N{Regional Indicator Symbol Letter I}")
         await embedFromBot.add_reaction("\N{Regional Indicator Symbol Letter J}")
 
-        global plan_confirmation_message
         plan_confirmation_message = embedFromBot
 
     if message.content == '/decision':
@@ -137,6 +142,10 @@ async def on_message(message):
         if existDicidedPlan == False:
             embed = discord.Embed(title="人数不足", description="今週のプライベートマッチはありません", color=discord.Colour.blue())
             await plan_confirmation_message.channel.send(embed=embed)
+
+    #if message.content == '/refresh':
+
+
 
 class User:
     name: str
