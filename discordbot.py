@@ -6,7 +6,6 @@ import random
 import os
 
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
-
 client = discord.Client()
 
 userdata_id_dictionary = {}
@@ -62,10 +61,12 @@ async def on_message(message):
     global plan_confirmation_channel_id
     plan_confirmation_channel_id = message.channel.id
 
+    global plan_confirmation_message
+    global plan_confirmation_user_data
 
     if message.content == '/create':
-        global plan_confirmation_user_data
 
+        plan_confirmation_message = None
         plan_confirmation_user_data = {}
 
         #print(message.channel.id)
@@ -93,11 +94,9 @@ async def on_message(message):
         await embedFromBot.add_reaction("\N{Regional Indicator Symbol Letter I}")
         await embedFromBot.add_reaction("\N{Regional Indicator Symbol Letter J}")
 
-        global plan_confirmation_message
         plan_confirmation_message = embedFromBot
 
     if message.content == '/decision':
-        global plan_confirmation_user_data
         existDicidedPlan = False
         await message.channel.send('@everyone')
         for key in plan_confirmation_user_data:
