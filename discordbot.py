@@ -64,10 +64,8 @@ async def on_message(message):
 
 
     if message.content == '/create':
-        global plan_confirmation_message
         global plan_confirmation_user_data
 
-        plan_confirmation_message = None
         plan_confirmation_user_data = {}
 
         #print(message.channel.id)
@@ -95,6 +93,7 @@ async def on_message(message):
         await embedFromBot.add_reaction("\N{Regional Indicator Symbol Letter I}")
         await embedFromBot.add_reaction("\N{Regional Indicator Symbol Letter J}")
 
+        global plan_confirmation_message
         plan_confirmation_message = embedFromBot
 
     if message.content == '/decision':
