@@ -131,9 +131,7 @@ async def on_message(message):
                     embed.add_field(name="日程", value=key + time)
 
                     for value in plan_confirmation_user_data[key]:
-                        num = 1
-                        embed.add_field(name="参加者"+num, value=value.name, inline=False)
-                        num = num + 1
+                        embed.add_field(name="参加者", value=value.name)
 
                     await plan_confirmation_message.channel.send(embed=embed)
 
